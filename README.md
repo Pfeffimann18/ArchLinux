@@ -1,5 +1,5 @@
 # ArchLinux
-Arch Linux installieren, verschlüsseln und anpassen.
+Arch Linux installieren, verschlüsseln und anpassen.[RAW](/READMERAW.md)
 ## 1. Basisinstallation
 Laden sie mit `loadkeys de` ein deutsches Tastaturlayout. Starten sie mit `iwctl` die Netzwerkeingabe.
 ```
