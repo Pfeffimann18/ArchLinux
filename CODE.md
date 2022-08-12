@@ -11,9 +11,9 @@ mount /dev/[Root-Partition] /mnt
 pacstrap /mnt base base-devel linux linux-firmware networkmanager nano intel-ucode
 genfstab -U /mnt > /mnt/etc/fstab
 arch-chroot /mnt
-nano /etc/nanorc → Syntax-Highlighting aktivieren
+nano /etc/nanorc    # Syntax-Highlighting aktivieren
 ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
-nano /etc/locale.gen	→ Sprache auswählen
+nano /etc/locale.gen    # Sprache auswählen
 locale-gen
 echo „LANG=de_DE.UTF-8“ > /etc/locale.conf
 echo „KEYMAP=de-latin1-nodeadkeys“ > /etc/vconsole.conf
@@ -23,9 +23,32 @@ mkinitcpio -P linux
 pacman -S grub dosfstools gptfdisk git efibootmgr
 BIOS: grub-install /dev/[Festplatte] 
 UEFI: grub-install --efi-directory=/boot /dev/[EFI-Festplatte]
-sudo nano /etc/default/grub	→ OS-Prober aktivieren
+sudo nano /etc/default/grub   # OS-Prober aktivieren
 grub-mkconfig -o /boot/grub/grub.cfg
 exit
 umount -R /mnt
 reboot 0
 ```
+> USB-Stick entfernen, neues System starten, als `root` anmelden
+```
+systemctl start NetworkManager
+systemctl enable NetworkManager
+nmcli device wifi connect [SSID] password [Passwort]
+pacman -Syy
+useradd -m leon
+usermod -aG wheel leon
+EDITOR=/usr/bin/nano visudo
+   # %wheel ALL=(ALL) ALL → aktivieren
+passwd leon
+chown -R leon:wheel /home/leon
+```
+> `root` abmelden, mit `leon` anmelden
+
+
+## Arch Linux – verschlüsselte Installation
+```
+cfdisk /dev/[Festplatte]
+```
+> - EFI-Partition – 300MB
+> - Kernel-Partition – 300MB
+> - LUKS-Partition
