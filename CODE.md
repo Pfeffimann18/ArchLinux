@@ -43,8 +43,8 @@ passwd leon
 chown -R leon:wheel /home/leon
 ```
 > `root` abmelden, mit `leon` anmelden
-
-
+<br />
+<br />
 ## Arch Linux – verschlüsselte Installation
 ```
 cfdisk /dev/[Festplatte]
