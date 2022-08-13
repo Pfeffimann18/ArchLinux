@@ -52,3 +52,56 @@ cfdisk /dev/[Festplatte]
 > - EFI-Partition – 300MB
 > - Kernel-Partition – 300MB
 > - LUKS-Partition
+```
+mkfs.msdos -F 32 /dev/[EFI-Partition]
+mkfs.ext4 /dev/[Kernel-Partition]
+cryptsetup -v -y --cipher aes-xts-plain64 --key-size 256 --hash sha256 --iter-time 2000 --use-urandom --verify-passphrase luksFormat /dev/[LUKS-Partition] 
+cryptsetup open /dev/[LUKS-Partition] LEON
+mkfs.ext4 /dev/mapper/LEON
+mount /dev/mapper/LEON /mnt
+mkdir /mnt/boot
+mount /dev/[Kernel-Partition] /mnt/boot
+mkdir /mnt/boot/efi
+mount /dev/[EFI-Partition] /mnt/boot/efi
+pacman -S wpa_supplicant dialog dhcpcd
+nano /etc/mkinitcpio.conf
+HOOKS={encrypt} hinzufügen, vor filesystems
+nano /etc/default/grub
+```
+> GRUB_CMDLINE_LINUX=“cryptdevice=/dev/[LUKS-Partition]:LEON root=/dev/mapper/LEON“ </br>
+> → GRUB.cfg-Datei erstellen
+```
+systemctl enable dhcpcd
+umount -R /mnt
+cryptsetup close LEON
+```
+</br>
+
+## AUR – Helper installieren
+```
+cd /opt
+sudo git clone https://aur.archlinux.org/yay.git
+sudo chown -R leon:wheel ./yay
+makepkg -si
+sudo yay -S pamac
+```
+</br>
+
+## i3 Fenstermanager
+```
+sudo pacman -S i3 i3-gaps i3-lock xorg lxappearance nitrogen nautilus chromium dmenu ttf-font-awesome polkit alsa-utils pulseaudio-alsa pulseaudio speedtest-cli
+yay -S ly j4-dmenu-desktop bumblebee-status ulauncher sakura
+nano /usr/bin/i3-sensible-terminal → Sakura einfügen
+sudo systemctl enable ly.service
+```
+</br>
+
+## Desktopumgebung installieren
+```
+sudo pacman -S [xfce4, tilix | kde-plasma-desktop] lightdm lightdm-gtk-greeter xorg xorg-server xorg-xinit
+sudo systemctl enable lightdm
+sudo nano /etc/lightdm/lightdm.conf
+```
+> greeter-session=lightdm-gtk-greeter → aktivieren </br>
+> → neustarten
+
