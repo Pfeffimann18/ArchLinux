@@ -104,4 +104,49 @@ sudo nano /etc/lightdm/lightdm.conf
 ```
 > greeter-session=lightdm-gtk-greeter → aktivieren </br>
 > → neustarten
+</br>
 
+## Deepin Desktop Environment 
+```
+sudo pacman -S xf86-video-amdgpu xorg deepin deepin-extra chromium 
+sudo nano /ext/lightdm/lightdm.conf
+```
+> greeter-session=lightdm-deepin-greeter
+> display-setup-script=xrand --mode [Auflösung]
+```
+sudo systemctl enable lightdm
+reboot
+```
+</br>
+
+## Xmonad – Setup
+```
+sudo pacman -Syy xorg lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar dmenu picom nitrogen chromium xfce4-terminal nautilus
+sudo systemctl enable lightdm
+sudo nano /etc/lightdm/lightdm.conf
+display-setup-script=xrandr –output Virtual-1 –mode [Auflösung]
+nano .xprofile
+```
+> .xprofile
+```
+# Keyboard Layout
+setxbmap de &
+# Wallpaper
+nitrogen --restore &
+#Compositor
+picom -f &
+```
+```
+mkdir .xmonad
+cd .xmonad
+nano xmonad.hs
+```
+xmonad.hs
+```
+import XMonad
+
+main    =  xmonad def
+           { terminal       =  „xfce4-terminal“
+           , modMask     =  mod4Mask
+           }
+```
