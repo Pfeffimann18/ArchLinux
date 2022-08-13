@@ -141,7 +141,7 @@ mkdir .xmonad
 cd .xmonad
 nano xmonad.hs
 ```
-xmonad.hs
+> xmonad.hs
 ```
 import XMonad
 
