@@ -87,15 +87,6 @@ sudo yay -S pamac
 ```
 </br>
 
-## i3 Fenstermanager
-```
-sudo pacman -S i3 i3-gaps i3-lock xorg lxappearance nitrogen nautilus chromium dmenu ttf-font-awesome polkit alsa-utils pulseaudio-alsa pulseaudio speedtest-cli
-yay -S ly j4-dmenu-desktop bumblebee-status ulauncher sakura
-nano /usr/bin/i3-sensible-terminal → Sakura einfügen
-sudo systemctl enable ly.service
-```
-</br>
-
 ## Desktopumgebung installieren
 ```
 sudo pacman -S [xfce4, tilix | kde-plasma-desktop] lightdm lightdm-gtk-greeter xorg xorg-server xorg-xinit
@@ -106,7 +97,17 @@ sudo nano /etc/lightdm/lightdm.conf
 > → neustarten
 </br>
 
-## Deepin Desktop Environment 
+### i3 Fenstermanager
+```
+sudo pacman -S i3 i3-gaps i3-lock xorg lxappearance nitrogen nautilus chromium dmenu ttf-font-awesome polkit alsa-utils pulseaudio-alsa pulseaudio speedtest-cli
+yay -S ly j4-dmenu-desktop bumblebee-status ulauncher sakura
+nano /usr/bin/i3-sensible-terminal → Sakura einfügen
+sudo systemctl enable ly.service
+```
+</br>
+
+
+### Deepin Desktop Environment 
 ```
 sudo pacman -S xf86-video-amdgpu xorg deepin deepin-extra chromium 
 sudo nano /ext/lightdm/lightdm.conf
@@ -119,7 +120,7 @@ reboot
 ```
 </br>
 
-## Xmonad – Setup
+### Xmonad – Setup
 ```
 sudo pacman -Syy xorg lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar dmenu picom nitrogen chromium xfce4-terminal nautilus
 sudo systemctl enable lightdm
