@@ -94,3 +94,34 @@ cd dtos/
 ### 4.3 Deepin Desktop Environment 
 
 ### 4.4 Xmonad
+```
+sudo pacman -Syy xorg lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar dmenu picom nitrogen chromium alacritty nautilus
+sudo systemctl enable lightdm
+sudo nano /etc/lightdm/lightdm.conf
+```
+
+> `display-setup-script=xrandr –output Virtual-1 –mode [Auflösung]´
+```
+nano .xprofile
+```
+```
+# Keyboard Layout
+setxbmap de &
+# Wallpaper
+nitrogen --restore &
+#Compositor
+picom -f &
+```
+```
+mkdir .xmonad
+cd .xmonad
+nano xmonad.hs
+```
+```
+import XMonad
+
+main    =  xmonad def
+           { terminal       =  „alacritty“
+           , modMask     =  mod4Mask
+           }
+```
