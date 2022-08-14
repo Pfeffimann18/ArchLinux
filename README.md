@@ -100,7 +100,7 @@ sudo systemctl enable lightdm
 sudo nano /etc/lightdm/lightdm.conf
 ```
 
-> `display-setup-script=xrandr –output Virtual-1 –mode [Auflösung]´
+> `display-setup-script=xrandr –output Virtual-1 –mode [Auflösung]`
 ```
 nano .xprofile
 ```
