@@ -37,3 +37,17 @@ echo „KEYMAP=de-latin1-nodeadkeys“ > /etc/vconsole.conf
 echo „[Name]“ > /etc/hostname
 ```
 Speichern sie diese, wählen sie ein Tastaturlayout und speichern den Hostname. Legen sie mit `passwd` das Passwort für den `Root`-Nutzer fest.
+
+
+
+## 2. verschlüsselte Installation von Arch Linux
+
+## 3. AUR–Helper installieren
+
+## 4. Desktopumgebung installieren
+
+### 4.1 i3 Fenstermanager
+
+### 4.2 Deepin Desktop Environment 
+
+## 4.3 Xmonad
