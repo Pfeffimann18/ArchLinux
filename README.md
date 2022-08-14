@@ -84,6 +84,13 @@ Mit `passwd leon` ein Passwort für `leon`festlegen und mit `chown -R leon:wheel
 
 ### 4.1 i3 Fenstermanager
 
-### 4.2 Deepin Desktop Environment 
+### 4.2 [DTOS](https://gitlab.com/dtos/dtos/)
+```
+git clone https://gitlab.com/dtos/dtos
+cd dtos/
+./dtos
+```
 
-### 4.3 Xmonad
+### 4.3 Deepin Desktop Environment 
+
+### 4.4 Xmonad
