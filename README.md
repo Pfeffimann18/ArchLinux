@@ -73,7 +73,7 @@ EDITOR=/usr/bin/nano visudo
 ```
 > `# %wheel ALL=(ALL) ALL` → aktivieren 
 
-Mit `passwd leon` ein Passwort für `leon`festlegen und mit `chown -R leon:wheel /home/leon` Zugriff auf den `Home`-Ordner freischalten. Abschließend den `root` abmelden und mir `leon`anmelden. </br>
+Mit `passwd leon` ein Passwort für `leon`festlegen und mit `chown -R leon:wheel /home/leon` Zugriff auf den `home`-Ordner freischalten. Abschließend den `root` abmelden und mir `leon`anmelden. </br>
 
 ## 2. verschlüsselte Installation von Arch Linux
 
