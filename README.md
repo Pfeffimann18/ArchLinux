@@ -37,7 +37,8 @@ echo „KEYMAP=de-latin1-nodeadkeys“ > /etc/vconsole.conf
 echo „[Name]“ > /etc/hostname
 mkinitcpio -P linux
 ```
-Speichern sie diese, wählen sie ein Tastaturlayout und speichern den Hostname. Legen sie mit `passwd` das Passwort für den `Root`-Nutzer fest. </br>
+Speichern sie diese, wählen sie ein Tastaturlayout und speichern den Hostname. Legen sie mit `passwd` das Passwort für den `Root`-Nutzer fest. 
+</br>
 
 ### 1.3 GRUB
 ```
@@ -46,7 +47,8 @@ pacman -S grub dosfstools gptfdisk git efibootmgr
 Auf einem BIOS-System `GRUB` mit `grub-install /dev/[Festplatte]`, auf `UEFI`-Sytemen mit `grub-install --efi-directory=/boot /dev/[EFI-Festplatte]`. Öffnen sie `/etc/default/grub` als `sudo` und aktivieren `OS-Prober` auf Dualboot-Systemen.
 ```
 grub-mkconfig -o /boot/grub/grub.cfg
-``` </br>
+``` 
+</br>
 
 ### 1.2 rEFInd
 ```
@@ -55,8 +57,8 @@ pacman -S refind dosfstools gptfdisk git efibootmgr
 rEFInd mit `refind-install` installieren. In `/boot/refind_linux.conf` den Microcode integrieren. 
 ```
 "Boot using default options"     "root=PARTUUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX rw add_efi_memmap initrd=boot\cpu_manufacturer-ucode.img initrd=boot\initramfs-%v.img"
-``` </br>
-
+``` 
+</br>
 `arch-chroot` mit `exit` verlassen. Danach mit `umount -R /mnt` die Dateisysteme auswerfen und anschließen mit `rebott 0` neustarten. Als nächstes den USB-Stick entfernen, das neue System starten und als `root` anmelden. </br>
 
 ### 1.3 Post-Installation Einstellungen
@@ -69,7 +71,8 @@ Netzwerk-Dienst starten und mit lokalem Netzwerk starten. Mit `pacman -Syy` die 
 ```
 EDITOR=/usr/bin/nano visudo
 ```
-> `# %wheel ALL=(ALL) ALL` → aktivieren
+> `# %wheel ALL=(ALL) ALL` → aktivieren 
+
 Mit `passwd leon` ein Passwort für `leon`festlegen und mit `chown -R leon:wheel /home/leon` Zugriff auf den `Home`-Ordner freischalten. Abschließend den `root` abmelden und mir `leon`anmelden. </br>
 
 ## 2. verschlüsselte Installation von Arch Linux
