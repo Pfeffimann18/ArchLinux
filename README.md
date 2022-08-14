@@ -59,6 +59,7 @@ rEFInd mit `refind-install` installieren. In `/boot/refind_linux.conf` den Micro
 "Boot using default options"     "root=PARTUUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX rw add_efi_memmap initrd=boot\cpu_manufacturer-ucode.img initrd=boot\initramfs-%v.img"
 ``` 
 </br>
+
 `arch-chroot` mit `exit` verlassen. Danach mit `umount -R /mnt` die Dateisysteme auswerfen und anschließen mit `rebott 0` neustarten. Als nächstes den USB-Stick entfernen, das neue System starten und als `root` anmelden. </br>
 
 ### 1.3 Post-Installation Einstellungen
