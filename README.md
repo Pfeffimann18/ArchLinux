@@ -91,6 +91,7 @@ cd dtos/
 ./dtos
 ```
 
+![alt text](https://gitlab.com/dwt1/dotfiles/-/raw/master/.screenshots/dtos-thumb-01.png "DTOS")
 ### 4.3 Deepin Desktop Environment 
 
 ### 4.4 Xmonad
