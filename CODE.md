@@ -21,8 +21,11 @@ echo „[Name]“ > /etc/hostname
 passwd
 mkinitcpio -P linux
 pacman -S grub dosfstools gptfdisk git efibootmgr
-BIOS: grub-install /dev/[Festplatte] 
-UEFI: grub-install --efi-directory=/boot /dev/[EFI-Festplatte]
+```
+| BIOS                           | UEFI                                                     |
+| ------------------------------ | -------------------------------------------------------- |
+| `grub-install /dev/[Festplatte]` | `grub-install --efi-directory=/boot /dev/[EFI-Festplatte]` |
+```
 sudo nano /etc/default/grub   # OS-Prober aktivieren
 grub-mkconfig -o /boot/grub/grub.cfg
 exit
