@@ -40,7 +40,7 @@ mkinitcpio -P linux
 Speichern sie diese, wählen sie ein Tastaturlayout und speichern den Hostname. Legen sie mit `passwd` das Passwort für den `Root`-Nutzer fest. 
 </br>
 
-### 1.3 GRUB
+### 1.2 GRUB
 ```
 pacman -S grub dosfstools gptfdisk git efibootmgr
 ```
@@ -50,7 +50,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ``` 
 </br>
 
-### 1.2 rEFInd
+### 1.3 rEFInd
 ```
 pacman -S refind dosfstools gptfdisk git efibootmgr
 ```
@@ -62,7 +62,7 @@ rEFInd mit `refind-install` installieren. In `/boot/refind_linux.conf` den Micro
 
 `arch-chroot` mit `exit` verlassen. Danach mit `umount -R /mnt` die Dateisysteme auswerfen und anschließen mit `rebott 0` neustarten. Als nächstes den USB-Stick entfernen, das neue System starten und als `root` anmelden. </br>
 
-### 1.3 Post-Installation Einstellungen
+### 1.4 Post-Installation Einstellungen
 ```
 systemctl start NetworkManager
 systemctl enable NetworkManager
