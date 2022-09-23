@@ -84,19 +84,9 @@ Mit `passwd leon` ein Passwort für `leon`festlegen und mit `chown -R leon:wheel
 
 ### 4.1 i3 Fenstermanager
 
-### 4.2 [DTOS](https://gitlab.com/dtos/dtos/)
-```
-git clone https://gitlab.com/dtos/dtos
-cd dtos/
-./dtos
-```
-<p align="center">
-  <img src="https://thumbs2.imgbox.com/fc/eb/gi5uMar7_t.png" width="900px">
-</p>
+### 4.2 Deepin Desktop Environment 
 
-### 4.3 Deepin Desktop Environment 
-
-### 4.4 Xmonad
+### 4.3 Xmonad
 ```
 sudo pacman -Syy xorg lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar dmenu picom nitrogen chromium alacritty nautilus
 sudo systemctl enable lightdm
@@ -127,4 +117,14 @@ main    =  xmonad def
            { terminal       =  „alacritty“
            , modMask     =  mod4Mask
            }
+```
+
+### 4.3.1 [DTOS](https://gitlab.com/dtos/dtos/)
+<p align="center">
+  <img src="https://thumbs2.imgbox.com/fc/eb/gi5uMar7_t.png" width="900px">
+</p>
+```
+git clone https://gitlab.com/dtos/dtos
+cd dtos/
+./dtos
 ```
