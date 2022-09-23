@@ -90,8 +90,10 @@ git clone https://gitlab.com/dtos/dtos
 cd dtos/
 ./dtos
 ```
+<p align="center">
+  <img src="https://thumbs2.imgbox.com/fc/eb/gi5uMar7_t.png" width="900px">
+</p>
 
-![alt text](https://gitlab.com/dwt1/dotfiles/-/raw/master/.screenshots/dtos-thumb-01.png "DTOS")
 ### 4.3 Deepin Desktop Environment 
 
 ### 4.4 Xmonad
