@@ -1,5 +1,5 @@
 # Arch Linux installieren
-```
+```bash
 loadkeys de
 iwctl
 station wlan0 connect [Netzwerk]
@@ -25,7 +25,7 @@ pacman -S grub dosfstools gptfdisk git efibootmgr
 | BIOS                           | UEFI                                                     |
 | ------------------------------ | -------------------------------------------------------- |
 | `grub-install /dev/[Festplatte]` | `grub-install --efi-directory=/boot /dev/[EFI-Festplatte]` |
-```
+```bash
 sudo nano /etc/default/grub   # OS-Prober aktivieren
 grub-mkconfig -o /boot/grub/grub.cfg
 exit
@@ -33,7 +33,7 @@ umount -R /mnt
 reboot 0
 ```
 > USB-Stick entfernen, neues System starten, als `root` anmelden
-```
+```bash
 systemctl start NetworkManager
 systemctl enable NetworkManager
 nmcli device wifi connect [SSID] password [Passwort]
@@ -49,13 +49,13 @@ chown -R leon:wheel /home/leon
 <br />
 
 ## Arch Linux – verschlüsselte Installation
-```
+```bash
 cfdisk /dev/[Festplatte]
 ```
 > - EFI-Partition – 300MB
 > - Kernel-Partition – 300MB
 > - LUKS-Partition
-```
+```bash
 mkfs.msdos -F 32 /dev/[EFI-Partition]
 mkfs.ext4 /dev/[Kernel-Partition]
 cryptsetup -v -y --cipher aes-xts-plain64 --key-size 256 --hash sha256 --iter-time 2000 --use-urandom --verify-passphrase luksFormat /dev/[LUKS-Partition] 
@@ -73,7 +73,7 @@ nano /etc/default/grub
 ```
 > GRUB_CMDLINE_LINUX=“cryptdevice=/dev/[LUKS-Partition]:LEON root=/dev/mapper/LEON“ </br>
 > → GRUB.cfg-Datei erstellen
-```
+```bash
 systemctl enable dhcpcd
 umount -R /mnt
 cryptsetup close LEON
@@ -81,7 +81,7 @@ cryptsetup close LEON
 </br>
 
 ## AUR – Helper installieren
-```
+```bash
 cd /opt
 sudo git clone https://aur.archlinux.org/yay.git
 sudo chown -R leon:wheel ./yay
@@ -91,7 +91,7 @@ sudo yay -S pamac
 </br>
 
 ## Desktopumgebung installieren
-```
+```bash
 sudo pacman -S [xfce4, tilix | kde-plasma-desktop] lightdm lightdm-gtk-greeter xorg xorg-server xorg-xinit
 sudo systemctl enable lightdm
 sudo nano /etc/lightdm/lightdm.conf
@@ -101,7 +101,7 @@ sudo nano /etc/lightdm/lightdm.conf
 </br>
 
 ### i3 Fenstermanager
-```
+```bash
 sudo pacman -S i3 i3-gaps i3-lock xorg lxappearance nitrogen nautilus chromium dmenu ttf-font-awesome polkit alsa-utils pulseaudio-alsa pulseaudio speedtest-cli
 yay -S ly j4-dmenu-desktop bumblebee-status ulauncher sakura
 nano /usr/bin/i3-sensible-terminal → Sakura einfügen
@@ -111,20 +111,20 @@ sudo systemctl enable ly.service
 
 
 ### Deepin Desktop Environment 
-```
+```bash
 sudo pacman -S xf86-video-amdgpu xorg deepin deepin-extra chromium 
 sudo nano /ext/lightdm/lightdm.conf
 ```
 > greeter-session=lightdm-deepin-greeter
 > display-setup-script=xrand --mode [Auflösung]
-```
+```bash
 sudo systemctl enable lightdm
 reboot
 ```
 </br>
 
 ### Xmonad – Setup
-```
+```bash
 sudo pacman -Syy xorg lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar dmenu picom nitrogen chromium xfce4-terminal nautilus
 sudo systemctl enable lightdm
 sudo nano /etc/lightdm/lightdm.conf
@@ -132,7 +132,7 @@ display-setup-script=xrandr –output Virtual-1 –mode [Auflösung]
 nano .xprofile
 ```
 > .xprofile
-```
+```bash
 # Keyboard Layout
 setxbmap de &
 # Wallpaper
@@ -140,13 +140,13 @@ nitrogen --restore &
 #Compositor
 picom -f &
 ```
-```
+```bash
 mkdir .xmonad
 cd .xmonad
 nano xmonad.hs
 ```
 > xmonad.hs
-```
+```haskell
 import XMonad
 
 main    =  xmonad def
