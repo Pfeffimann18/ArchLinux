@@ -1,9 +1,10 @@
 # ArchLinux
-Arch Linux installieren, verschlüsseln und anpassen. [CODE](/CODE.md)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Pfeffimann18/ArchLinux)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Pfeffimann18/ArchLinux)
 ![GitHub repo file count](https://img.shields.io/github/directory-file-count/Pfeffimann18/ArchLinux)
 ![GitHub](https://img.shields.io/github/license/Pfeffimann18/ArchLinux)
+Arch Linux installieren, verschlüsseln und anpassen. [CODE](/CODE.md)
+
 ## 1. Basisinstallation
 Laden Sie mit `loadkeys de` das deutsche Tastaturlayout. Starten Sie mit `iwctl` die Netzwerkeingabe.
 ```bash
