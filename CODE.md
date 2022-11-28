@@ -100,15 +100,11 @@ sudo nano /etc/lightdm/lightdm.conf
 > → neustarten
 </br>
 
-### i3 Fenstermanager
-```bash
-sudo pacman -S i3 i3-gaps i3-lock xorg lxappearance nitrogen nautilus chromium dmenu ttf-font-awesome polkit alsa-utils pulseaudio-alsa pulseaudio speedtest-cli
-yay -S ly j4-dmenu-desktop bumblebee-status ulauncher sakura
-nano /usr/bin/i3-sensible-terminal → Sakura einfügen
-sudo systemctl enable ly.service
-```
+### [bspwm](https://github.com/Pfeffimann18/bspwm)
 </br>
 
+### [i3 Fenstermanager](https://github.com/Pfeffimann18/i3)
+</br>
 
 ### Deepin Desktop Environment 
 ```bash
